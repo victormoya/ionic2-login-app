@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Come inside</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<form (ngSubmit)="login()" #loginForm="ngForm">
+  <div>
+    <ion-item>
+      <ion-label color="primary" floating>Username</ion-label>
+      <ion-input type="text" 
+                 name="username" 
+                 [(ngModel)]="credentials.name"
+                 required>
+      </ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label color="primary" floating>Password</ion-label>
+      <ion-input type="password" 
+                 name="password" 
+                 [(ngModel)]="credentials.password"
+                 required>
+      </ion-input>
+    </ion-item>
+  </div>
+  
+  <p>
+    <button ion-button block large
+            type="submit"
+            [disabled]="!loginForm.form.valid">Enter</button>
+  </p>
+</form>
+
+</ion-content>

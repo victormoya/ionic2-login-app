@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ionic 2</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h3>Welcome to this ionic App</h3>
+
+  <p>
+    Let's do some stuff
+  </p>
+  <p>
+    <button ion-button block (click)="showActionSheet()">
+      Show Action Sheet
+    </button>
+  </p>
+  <p>
+    <button ion-button block (click)="showAlert()">
+      Show Alert
+    </button>
+  </p>
+  <p>
+    <button ion-button block (click)="showPrompt()">
+      Show Prompt
+    </button>
+  </p>
+
+</ion-content>
