@@ -9,11 +9,17 @@
 
 <ion-content padding>
 
-  <h3>Welcome to this ionic App</h3>
+  <h3>Building Map</h3>
 
-  <p>
-    Let's do some stuff
-  </p>
+  <ion-list>
+    <ion-item *ngFor="let person of people">
+      <ion-avatar item-left>
+        <img src="{{person.picture.thumbnail}}">
+      </ion-avatar>
+      <h2>{{person.name.first}} {{person.name.last}}</h2>
+      <p>{{person.email}}</p>
+    </ion-item>
+  </ion-list>
   <p>
     <button ion-button block (click)="showActionSheet()">
       Show Action Sheet
