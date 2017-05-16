@@ -3,18 +3,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>Empleados de pie en el pasillo</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
+   <ion-list>
+    <ion-item *ngFor="let person of people" (click)="showActionSheet()">
+      <ion-avatar item-left>
+        <img src="{{person.picture.thumbnail}}">
+      </ion-avatar>
+      <h2>{{person.name.first}} {{person.name.last}}</h2>
+      <p>{{person.email}}</p>
+    </ion-item>
   </ion-list>
 </ion-content>

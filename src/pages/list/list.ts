@@ -1,34 +1,48 @@
 import { Component } from '@angular/core';
 
+import { ActionSheetController } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
+import { PeopleService } from '../../providers/people-service'
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
+  providers: [PeopleService]
 })
 export class ListPage {
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  public people: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for(let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  constructor(public peopleService: PeopleService, 
+              public ActionSheetCtrl: ActionSheetController) {
+    this.loadPeople();
   }
 
-  itemTapped(event, item) {
-    this.navCtrl.push(ItemDetailsPage, {
-      item: item
+  loadPeople() {
+    this.peopleService.load().then(data => {
+      this.people = data;
     });
   }
+
+    showActionSheet() {
+      let actionSheet = this.ActionSheetCtrl.create({
+          title: 'Acciones',
+          buttons: [
+              {
+                  text: 'Sentar',
+                  handler: () => {
+                      console.log('Sentar clicked');
+                  }
+              }
+          ]
+      });
+      actionSheet.present();
+  }
+
+  // itemTapped(event, item) {
+  //   this.navCtrl.push(ItemDetailsPage, {
+  //     item: item
+  //   });
+  // }
 }

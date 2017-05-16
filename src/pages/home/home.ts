@@ -3,12 +3,9 @@ import { Component } from '@angular/core';
 import { ActionSheetController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
-import { PeopleService } from '../../providers/people-service'
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [PeopleService]
 })
 
 export class HomePage {
@@ -16,17 +13,10 @@ export class HomePage {
 
   constructor(
     public ActionSheetCtrl: ActionSheetController,
-    public alertCtrl: AlertController,
-    public peopleService: PeopleService
+    public alertCtrl: AlertController
     ) { 
-      this.loadPeople();
+      
     }
-  
-  loadPeople() {
-    this.peopleService.load().then(data => {
-      this.people = data;
-    });
-  }
 
   showActionSheet() {
       let actionSheet = this.ActionSheetCtrl.create({

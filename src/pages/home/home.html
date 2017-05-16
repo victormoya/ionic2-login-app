@@ -3,36 +3,31 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Ionic 2</ion-title>
+    <ion-title>Valencia Antigua</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <h3>Building Map</h3>
-
-  <ion-list>
-    <ion-item *ngFor="let person of people">
-      <ion-avatar item-left>
-        <img src="{{person.picture.thumbnail}}">
-      </ion-avatar>
-      <h2>{{person.name.first}} {{person.name.last}}</h2>
-      <p>{{person.email}}</p>
-    </ion-item>
-  </ion-list>
+  <h3>Selecciona una planta</h3>
   <p>
-    <button ion-button block (click)="showActionSheet()">
-      Show Action Sheet
+    <button ion-button block>
+      Planta 9
     </button>
   </p>
   <p>
-    <button ion-button block (click)="showAlert()">
-      Show Alert
+    <button ion-button block>
+      Planta 8
     </button>
   </p>
   <p>
-    <button ion-button block (click)="showPrompt()">
-      Show Prompt
+    <button ion-button block>
+      Planta 3
+    </button>
+  </p>
+  <p>
+    <button ion-button block>
+      Planta 2
     </button>
   </p>
 
